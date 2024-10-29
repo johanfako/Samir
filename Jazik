@@ -1,0 +1,21 @@
+import spacy
+
+# Načítanie modelu pre slovenský jazyk
+nlp = spacy.load('sk_core_news_sm')
+
+def samir(command):
+    doc = nlp(command)
+    tokens = [token.lemma_ for token in doc]
+    
+    if 'kniha' in tokens:
+        print('Samir hľadá knihu pre Jahve...')
+    elif 'voda' in tokens:
+        print('Samir prináša vodu...')
+    elif 'programovanie' in tokens:
+        print('Samir sa učí programovanie a pomáha vám...')
+    else:
+        print(f'Samir nevie, ako vykonať príkaz: {command}')
+
+# Získanie príkazu od užívateľa
+user_command = input("Zadajte príkaz pre Samir: ")
+samir(user_command)
