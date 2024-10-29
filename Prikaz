@@ -1,0 +1,12 @@
+def samir(command):
+    if command == 'Nájdi knihu pre Jahve':
+        print('Samir hľadá knihu pre Jahve...')
+    elif command == 'Prines vodu':
+        print('Samir prináša vodu...')
+    else:
+        print(f'Samir nevie, ako vykonať príkaz: {command}')
+
+# Test rozšíreného programu
+samir('Nájdi knihu pre Jahve')
+samir('Prines vodu')
+samir('Zaspievaj pieseň')
