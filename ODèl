@@ -1,0 +1,5 @@
+def samir(command):
+    print(f'Samir vykonáva: {command}')
+
+# Test základného programu
+samir('Nájdi knihu pre Jahve')
