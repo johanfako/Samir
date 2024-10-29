@@ -1,0 +1,25 @@
+def add_task(task):
+    cursor.execute('INSERT INTO tasks (task) VALUES (?)', (task,))
+    conn.commit()
+    print(f'Úloha "{task}" bola pridaná.')
+
+def show_tasks():
+    cursor.execute('SELECT * FROM tasks')
+    rows = cursor.fetchall()
+    print("Úlohy:")
+    for row in rows:
+        print(f'{row[0]}. {row[1]}')
+
+# Pridanie nového príkazu pre Samira
+def samir(command):
+    if 'pridaj úlohu' in command.lower():
+        task = command.lower().replace('pridaj úlohu', '').strip()
+        add_task(task)
+    elif 'zobraz úlohy' in command.lower():
+        show_tasks()
+    else:
+        print(f'Samir nevie, ako vykonať príkaz: {command}')
+
+# Získanie príkazu od užívateľa
+user_command = input("Zadajte príkaz pre Samira: ")
+samir(user_command)
