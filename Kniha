@@ -1,0 +1,18 @@
+import nltk
+nltk.download('punkt')
+
+def samir(command):
+    tokens = nltk.word_tokenize(command.lower())
+    
+    if 'knihu' in tokens:
+        print('Samir hľadá knihu pre Jahve...')
+    elif 'vodu' in tokens:
+        print('Samir prináša vodu...')
+    elif 'programovanie' in tokens:
+        print('Samir sa učí programovanie a pomáha vám...')
+    else:
+        print(f'Samir nevie, ako vykonať príkaz: {command}')
+
+# Získanie príkazu od užívateľa
+user_command = input("Zadajte príkaz pre Samira: ")
+samir(user_command)
