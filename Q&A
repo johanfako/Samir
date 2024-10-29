@@ -1,0 +1,19 @@
+from transformers import pipeline
+
+# Načítanie Q&A pipeline
+qa_pipeline = pipeline("question-answering")
+
+def ask_samir(question, context):
+    result = qa_pipeline(question=question, context=context)
+    return result['answer']
+
+# Kontext pre otázky (môžete nahradiť vlastným textom)
+context = """
+    Samir je virtuálny asistent, ktorý pomáha používateľom s rôznymi úlohami.
+    Vie odpovedať na otázky, vykonávať príkazy a poskytovať podporu.
+"""
+
+# Získanie otázky od užívateľa
+user_question = input("Zadajte otázku pre Samira: ")
+answer = ask_samir(user_question, context)
+print(f"Samir: {answer}")
